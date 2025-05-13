@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yusuf Bilal | Data Analyst</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --secondary: #10b981;
+            --dark: #1e293b;
+            --light: #f8fafc;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            left: -10px;
+            top: 0;
+            background-color: var(--primary);
+            border: 3px solid white;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fadeIn {
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        .delay-100 {
+            animation-delay: 0.1s;
+        }
+        
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-300 {
+            animation-delay: 0.3s;
+        }
+        
+        .delay-400 {
+            animation-delay: 0.4s;
+        }
+
+        .justify-text {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-sm z-50 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold text-blue-500">YB</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-blue-500">Home</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-blue-500">About</a>
+                    <a href="#skills" class="nav-link text-gray-700 hover:text-blue-500">Skills</a>
+                    <a href="#experience" class="nav-link text-gray-700 hover:text-blue-500">Experience</a>
+                    <a href="#projects" class="nav-link text-gray-700 hover:text-blue-500">Projects</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-blue-500">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" class="text-gray-700">
+                        <svg class="w-6 h-6", fill="none", stroke="currentColor", viewBox="0 0 24 24", xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round", stroke-linejoin="round", stroke-width="2", d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-gray-50">Home</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-gray-50">About</a>
+                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-gray-50">Skills</a>
+                <a href="#experience" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-gray-50">Experience</a>
+                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-gray-50">Projects</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-gray-50">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-r from-blue-50 to-emerald-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 animate-fadeIn">
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Yusuf Bilal</h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold text-blue-600 mb-3">Data Analyst</h2>
+                    <p class="text-lg text-gray-600 mb-8">Turning Data into Insightful Stories</p>
+                    <div class="flex space-x-4">
+                        <a href="#contact" class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300 shadow-lg hover:shadow-xl">Get In Touch</a>
+                        <a href="#projects", class="px-6 py-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition duration-300">View Projects</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center animate-fadeIn delay-200">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80 bg-white rounded-full shadow-xl overflow-hidden border-4 border-white">
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-400 to-emerald-400 opacity-20"></div>
+                        <div class="absolute inset-4 bg-blue-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-chart-line text-6xl md:text-8xl text-blue-600 opacity-70"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12 animate-fadeIn">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center animate-fadeIn delay-100">
+                    <div class="w-48 h-48 rounded-full overflow-hidden border-4 border-blue-100 shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Yusuf Bilal" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="md:w-2/3 md:pl-12 animate-fadeIn delay-200">
+                    <p class="text-lg text-gray-600 mb-6 justify-text">
+                        I'm a passionate Data Analyst with a strong background in Economics. My journey in data analysis began during my studies when I discovered the power of data to uncover hidden patterns and tell compelling stories. I specialize in transforming complex datasets into clear, actionable insights that drive business decisions. My approach combines technical expertise with business acumen to deliver meaningful results that stakeholders can understand and act upon.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-6 justify-text">
+                        With expertise in SQL, Python, and data visualization tools, I bridge the gap between technical data analysis and strategic business understanding. My approach combines analytical rigor with creative problem-solving to deliver impactful results. I'm particularly interested in how data can be used to solve real-world problems and improve decision-making processes across various industries, from finance to e-commerce.
+                    </p>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-graduation-cap text-blue-500 mr-2"></i>
+                            <span class="text-gray-700">Development Economics</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-blue-500 mr-2"></i>
+                            <span class="text-gray-700">Jakarta, Indonesia</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-blue-500 mr-2"></i>
+                            <span class="text-gray-700">yusufbilal808@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12 animate-fadeIn">Education</h2>
+            <div class="bg-white rounded-xl shadow-md overflow-hidden max-w-2xl mx-auto animate-fadeIn delay-100">
+                <div class="p-6 md:p-8">
+                    <div class="flex items-start">
+                        <div class="bg-blue-100 p-4 rounded-lg mr-6">
+                            <i class="fas fa-university text-blue-600 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">Bachelor's of Development Economics</h3>
+                            <p class="text-blue-600 font-medium mb-2">UIN Syarif Hidayatullah Jakarta</p>
+                            <p class="text-gray-600 mb-2">2020 - 2024</p>
+                            <div class="flex items-center">
+                                <span class="text-gray-700 mr-2">GPA:</span>
+                                <span class="font-semibold">3.34/4.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12 animate-fadeIn">Key Skills</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Skill 1 -->
+                <div class="skill-card bg-white rounded-xl shadow-md p-6 text-center transition-all duration-300 hover:border-blue-500 border border-transparent animate-fadeIn delay-100">
+                    <div class="bg-blue-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-database text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">SQL</h3>
+                    <p class="text-gray-600 text-sm">Data querying, optimization, and database management</p>
+                </div>
+                
+                <!-- Skill 2 -->
+                <div class="skill-card bg-white rounded-xl shadow-md p-6 text-center transition-all duration-300 hover:border-blue-500 border border-transparent animate-fadeIn delay-200">
+                    <div class="bg-blue-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fab fa-python text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Python</h3>
+                    <p class="text-gray-600 text-sm">Pandas, NumPy, Matplotlib, Seaborn, and data analysis</p>
+                </div>
+                
+                <!-- Skill 3 -->
+                <div class="skill-card bg-white rounded-xl shadow-md p-6 text-center transition-all duration-300 hover:border-blue-500 border border-transparent animate-fadeIn delay-300">
+                    <div class="bg-blue-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-file-excel text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Excel</h3>
+                    <p class="text-gray-600 text-sm">Advanced formulas, pivot tables, and data visualization</p>
+                </div>
+                
+                <!-- Skill 4 -->
+                <div class="skill-card bg-white rounded-xl shadow-md p-6 text-center transition-all duration-300 hover:border-blue-500 border border-transparent animate-fadeIn delay-400">
+                    <div class="bg-blue-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-chart-bar text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Tableau</h3>
+                    <p class="text-gray-600 text-sm">Interactive dashboards and data storytelling</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Projects Section -->
+    <section id="projects" class="py-16 bg-gray">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12 animate-fadeIn">Project Portfolio</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="relative rounded-xl overflow-hidden shadow-lg animate-fadeIn delay-100">
+                    <div class="h-48 bg-gradient-to-r from-blue-400 to-blue-600 flex items-center justify-center">
+                        <i class="fas fa-chart-pie text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Logistics Sales & Profit Performance Analysis</h3>
+                        <p class="text-gray-600 text-sm mb-4 justify-text">
+                            In this project, I explored logistics and retail data to uncover how shipping performance, customer segments, and product categories influence business outcomes. I began by cleaning and analyzing the dataset using SQL to identify patterns in shipping durations, customer behavior, and sales performance. The insights were then visualized through an interactive dashboard built in Tableau to support clearer and more actionable decision-making.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">Tableau</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">SQL</span>
+                        </div>
+                        <a href="https://drive.google.com/file/d/1l5b_wsvD7Kgyk08gZToVeD9YEqZLQusL/view?usp=sharing" class="text-blue-600 font-medium text-sm flex items-center">
+                            View Project <i class="fas fa-arrow-up-right-from-square ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="relative rounded-xl overflow-hidden shadow-lg animate-fadeIn delay-200">
+                    <div class="h-48 bg-gradient-to-r from-emerald-400 to-emerald-600 flex items-center justify-center">
+                        <i class="fas fa-shopping-cart text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Food Delivery Service Analysis with Python</h3>
+                        <p class="text-gray-600 text-sm mb-4 justify-text">
+                            This project analyzes a food delivery dataset to uncover insights on operational efficiency, external influencing factors, and delivery performance. Using Python libraries such as Pandas, Matplotlib, and Seaborn, I conducted data cleaning, transformation, exploratory data analysis (EDA), and visualization to reveal how weather, traffic, and delivery conditions affect service quality and duration.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-xs rounded-full">Python</span>
+                            <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-xs rounded-full">Pandas</span>
+                            <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-xs rounded-full">Matplotlib</span>
+                            <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-xs rounded-full">Seaborn</span>
+                        </div>
+                        <a href="https://drive.google.com/file/d/1cBfbxoPpr3oJdyl68jTC8tHgOtF6sShs/view?usp=sharing" class="text-blue-600 font-medium text-sm flex items-center">
+                            View Project <i class="fas fa-arrow-up-right-from-square ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="relative rounded-xl overflow-hidden shadow-lg animate-fadeIn delay-300">
+                    <div class="h-48 bg-gradient-to-r from-purple-400 to-purple-600 flex items-center justify-center">
+                        <i class="fas fa-coins text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Financial Risk Model</h3>
+                        <p class="text-gray-600 text-sm mb-4 justify-text">
+                            Predictive model assessing credit risk using machine learning techniques. Developed using Python and scikit-learn, this project involved analyzing historical loan data to predict default probabilities. The model achieved 85% accuracy in test scenarios and helped a microfinance institution reduce their default rate by 12% in the first six months of implementation. Feature importance analysis provided insights into which borrower characteristics were most predictive of repayment behavior.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">Python</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">Scikit-learn</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">Jupyter</span>
+                        </div>
+                        <a href="#" class="text-blue-600 font-medium text-sm flex items-center">
+                            View Project <i class="fas fa-external-link-alt ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12 animate-fadeIn delay-400">
+                <a href="https://www.linkedin.com/in/yusufbilal" class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300 inline-flex items-center">
+                    <i class="fab fa-linkedin mr-2"></i> View More on LinkedIn
+                </a>
+            </div>
+        </div>
+    </section>
+
+        <!-- Experience Section -->
+    <section id="experience" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12 animate-fadeIn">Internship Experience</h2>
+            <div class="bg-white rounded-xl shadow-md overflow-hidden max-w-3xl mx-auto animate-fadeIn delay-100">
+                <div class="p-8">
+                    <div class="flex items-start">
+                        <div class="bg-blue-100 p-4 rounded-lg mr-6">
+                            <i class="fas fa-building text-blue-600 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">D-III Taxation Staff</h3>
+                            <p class="text-blue-600 font-medium mb-2">PKN STAN (Kementerian Keuangan Internship)</p>
+                            <p class="text-gray-600 mb-4">Jun 2024 - Jul 2024</p>
+                            <p class="text-gray-600 mb-4 justify-text">
+                                During my internship at PKN STAN, I worked in the D-III Taxation Staff analyzing research data and reviewed tax articles in textbook. This experience gave me valuable insights about how tax drives national economics.
+                            </p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                <li class="justify-text">Assisting lecturers in collecting research data and processing data to prove research hypotheses.</li>
+                                <li class="justify-text">Reviewed and analyzed tax articles in textbook, ensuring alignment with tax compliance regulations for Taxation students at PKN STAN</li>
+                                <li class="justify-text">Developed 9 interactive PowerPoint presentations on Taxation topics, enhancing student interaction by 25% based on feedback</li>
+                                <li class="justify-text">Prepared internal meeting outcome reports, focusing on tax articles on textbook</li>
+                            </ul>
+                            <a href="https://drive.google.com/file/d/1l5b_wsvD7Kgyk08gZToVeD9YEqZLQusL/view?usp=sharing" class="text-blue-600 font-medium text-sm flex items-center mt-auto pt-4">
+                            View Internship Certificate <i class="fas fa-arrow-up-right-from-square ml-1"></i>
+                        </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12 animate-fadeIn">Certifications</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Certificate 1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden animate-fadeIn delay-200">
+                    <div class="h-40 bg-gradient-to-r from-blue-500 to-blue-400 flex items-center justify-center">
+                        <i class="fas fa-chart-bar text-white text-5xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Data Analytics</h3>
+                        <p class="text-blue-600 font-medium mb-3">RevoU</p>
+                        <p class="text-gray-600 text-sm justify-text">
+                            Demonstrated skills in applying data analytics for business decisions, including data analysis steps, data cleaning with SQL and Python, and visualizing insights using Tableau and Looker Studio.
+                        </p>
+                        <a href="https://drive.google.com/file/d/1nB6L6vIupst5rOpzHdMT6tEdL3Okt5C_/view?usp=sharing" class="text-blue-600 font-medium text-sm flex items-center mt-auto pt-4">
+                            View Certificate <i class="fas fa-arrow-up-right-from-square ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Certificate 2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden animate-fadeIn delay-200">
+                    <div class="h-40 bg-gradient-to-r from-emerald-500 to-emerald-400 flex items-center justify-center">
+                        <i class="fas fa-chart-pie text-white text-5xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Win Your Business Presentation with Remarkable Storytelling</h3>
+                        <p class="text-blue-600 font-medium mb-3">My Digital Academy by Bank Mandiri</p>
+                        <p class="text-gray-600 text-sm justify-text">
+                            Attended a workshop on crafting impactful business presentations through storytelling, focusing on persuasive narratives, emotional structure, and strategies to connect with diverse professional audiences.
+                        </p>
+                        <a href="https://drive.google.com/file/d/1-Vk8qqyTWsEd2OtsgRkNoAxayUwnci7s/view?usp=sharing" class="text-blue-600 font-medium text-sm flex items-center mt-4">
+                            View Certificate <i class="fas fa-arrow-up-right-from-square ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Certificate 3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden animate-fadeIn delay-300">
+                    <div class="h-40 bg-gradient-to-r from-purple-500 to-purple-400 flex items-center justify-center">
+                        <i class="fas fa-laptop-code text-white text-5xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Python for Data Science in 2025 A-Z: EDA with Real Exercises</h3>
+                        <p class="text-blue-600 font-medium mb-3">Udemy</p>
+                        <p class="text-gray-600 text-sm justify-text">
+                            Completed a hands-on course focused on using Python for exploratory data analysis (EDA). Learned to manipulate and visualize real-world datasets using pandas, Matplotlib, and Seaborn. Strengthened practical skills in cleaning, exploring, and interpreting data for data science workflows.
+                        </p>
+                        <a href="https://drive.google.com/file/d/1zMKR5DRWl0rL2Wt0U4qOUggGwQ75QA5L/view?usp=sharing" class="text-blue-600 font-medium text-sm flex items-center mt-4">
+                            View Certificate <i class="fas fa-arrow-up-right-from-square ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Certificate 4 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden animate-fadeIn delay-300">
+                    <div class="h-40 bg-gradient-to-r from-purple-500 to-purple-400 flex items-center justify-center">
+                        <i class="fas fa-table text-white text-5xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Microsoft Excel Basic Formula</h3>
+                        <p class="text-blue-600 font-medium mb-3">MySkill</p>
+                        <p class="text-gray-600 text-sm justify-text">
+                            Completed a short class focused on foundational Excel formulas for data processing and analysis. Covered key functions such as SUM, AVERAGE, IF, VLOOKUP, and basic cell referencing techniques. Strengthened practical spreadsheet skills essential for day-to-day data tasks.
+                        </p>
+                        <a href="https://drive.google.com/file/d/1xk6lBEjLcqo8zX023E6wvPDf-qAUsFDW/view?usp=sharing" class="text-blue-600 font-medium text-sm flex items-center mt-4">
+                            View Certificate <i class="fas fa-arrow-up-right-from-square ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12 animate-fadeIn">Achievements</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Achievement 1 -->
+                <div class="bg-white rounded-xl shadow-md p-6 animate-fadeIn delay-100">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-trophy text-blue-600"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800">Completing 50 SQL Problemset on Leetcode</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm justify-text">
+                        Completed 50 structured SQL challenges on LeetCode that focus on real-world data scenarios such as filtering, joins, aggregations, subqueries, and window functions. Strengthened practical skills in writing efficient MySQL queries and analyzing relational data, providing a solid foundation for data analysis in business contexts.
+                    </p>
+                </div>
+                
+                <!-- Achievement 2 -->
+                <div class="bg-white rounded-xl shadow-md p-6 animate-fadeIn delay-200">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-medal text-blue-600"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800">30 Days of Pandas</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm justify-text">
+                        Completed LeetCode's 30 Days of Pandas study plan, consisting of 32 practical exercises focused on real-world data manipulation using the pandas library. Topics covered include data cleaning, filtering, grouping, merging, handling missing values, and applying string and date-time operations. This experience enhanced proficiency in writing efficient and readable pandas code, preparing for data analysis tasks in professional settings.
+                    </p>
+                </div>
+                
+                <!-- Achievement 3 -->
+                <div class="bg-white rounded-xl shadow-md p-6 animate-fadeIn delay-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-star text-blue-600"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800">Top Performer Intern Award</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm justify-text">
+                        Recognized as top performing intern at Bank Indonesia for developing an innovative data visualization approach for monetary policy analysis. I created an interactive dashboard that allowed policymakers to explore the relationships between interest rates, inflation, and economic growth across different time periods and regions. This tool reduced the time needed to prepare monetary policy briefings by 30% and was adopted for use beyond my internship period.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12 animate-fadeIn">Get In Touch</h2>
+            <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-md overflow-hidden animate-fadeIn delay-100">
+                <div class="p-8">
+                    <p class="text-center text-gray-600 mb-8">Feel free to reach out for collaboration or just to say hello!</p>
+                    <div class="flex justify-center space-x-8">
+                        <a href="https://www.linkedin.com/in/yusufbilal" class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center hover:bg-blue-200 transition duration-300">
+                            <i class="fab fa-linkedin-in text-blue-600 text-2xl"></i>
+                        </a>
+                        <a href="https://wa.me/6281280151764" class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center hover:bg-green-200 transition duration-300">
+                            <i class="fab fa-whatsapp text-green-600 text-2xl"></i>
+                        </a>
+                        <a href="mailto:yusufbilal808@gmail.com" class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center hover:bg-red-200 transition duration-300">
+                            <i class="fas fa-envelope text-red-600 text-2xl"></i>
+                        </a>
+                    </div>
+                    <div class="mt-8 text-center">
+                        <p class="text-gray-600 mb-2">Or send me an email at</p>
+                        <a href="mailto:yusufbilal808@gmail.com" class="text-blue-600 font-medium text-lg">yusufbilal808@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-gray-800 text-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <span class="text-xl font-bold">Yusuf Bilal</span>
+                    <p class="text-gray-400 text-sm mt-1">Data Analyst</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://www.linkedin.com/in/yusufbilal" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-gray-400 text-sm">
+                <p>&copy; 2023 Yusuf Bilal. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Sticky navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-md');
+                nav.classList.add('bg-opacity-90');
+            } else {
+                nav.classList.remove('shadow-md');
+                nav.classList.remove('bg-opacity-90');
+            }
+        });
+
+        // Scroll animation observer
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeIn');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
